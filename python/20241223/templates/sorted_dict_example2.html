@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>dictsort 필터 예제</title>
+</head>
+<body>
+    <h2>정렬된 딕셔너리 항목</h2>
+    <ul>
+    {% if sort_by == 'value' % }    
+        {% for key, value in template_dict | dictsort(by='value',
+        reverse=reverse) %}
+    {% else %}
+        {% for key, value in template_dict | dictsort(reverse=reverse) %}
+        
+
+</html>

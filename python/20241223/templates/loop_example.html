@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>숫자 리스트</title>
+</head>
+<body>
+    <h2>숫자 리스트</h2>
+    <ul>
+    {% for i in range(template_variable) %}
+    <li>{{i+1}}</li>
+    {% endfor %}
+    </ul>
+</body>

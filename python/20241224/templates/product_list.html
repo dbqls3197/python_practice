@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flask 템플릿 변수 사용하기</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <h1>제품 목록 🛒</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>가격</th>
+        <th>설명</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+      <tr>
+        <td>{{product.name}}</td>
+        <td>{{product.price|currency}}</td>
+        <td>{{product.description}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</body>
+</html>

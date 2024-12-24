@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>이모지 템플릿 예제</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>이모지 목록 {{emojis['star']}}{{emojis.star}}</h1>
+    <ul>
+        {% for key,value in emojis.items()%}
+            <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
