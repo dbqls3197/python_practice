@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}홈페이지{% endblock %}</title>
+	<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <header>
+        <h1>{% block subject %}Home{% endblock %}</h1>
+        <nav>
+            {% include '_nav.html' %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        기본 콘텐츠
+        {% endblock %}
+    </main>
+
+    <footer>
+        {% include '_footer.html' %}
+    </footer>
+</body>
+</html>

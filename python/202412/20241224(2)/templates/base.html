@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <!-- CSS 파일 경로 수정 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}" type="text/css" media="all">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" media="all">
+
+    <!-- JS 파일 경로 수정 -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.6.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/cufon-yui.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/cufon-replace.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/Didact_Gothic_400.font.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/Shanti_400.font.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/roundabout.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/roundabout_shapes.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.easing.1.2.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body id="{% block page_id %}default{% endblock %}">
+<div class="body1">
+    <div class="main">
+    <!-- header -->
+        <header>
+            <div class="wrapper">
+                <nav>
+                    <ul id="top_nav">
+                        <li><a href="Support">Support</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li class="end"><a href="#">Sitemap</a></li>
+                    </ul>
+                </nav>
+                <span class="date">Monday, June 6, 2011  &nbsp; &nbsp; 17:19</span>
+            </div>
+            <div class="wrapper">
+                <h1><a href="/" id="logo">Pro Soft</a></h1>
+                <nav>
+                    {% block menu %}{% endblock %}
+                </nav>
+            </div>
+            {% block wrapper %}
+            {% endblock %}
+        </header><div class="ic">More Website Templates  at TemplateMonster.com!</div>
+        {% block content %}
+
+        {% endblock %}
+
+
+<div class="body2">
+    <div class="main">
+        <article id="content2">
+            <section class="col1">
+                <h3>Newsletter</h3>
+                <form id="newsletter">
+                    <div>
+                        <div class="bg">
+                            <input class="input" type="text" value="Type Your Email Here"  onblur="if(this.value=='') this.value='Type Your Email Here'" onfocus="if(this.value =='Type Your Email Here' ) this.value=''">
+                        </div>
+                        <a href="#" class="button" onclick="document.getElementById('ContactForm').submit()">Subscribe</a>
+                    </div>
+                </form>
+            </section>
+            <section class="col_1">
+                <h3>Why Us?</h3>
+                <ul class="list1">
+                    <li><a href="#">Sed ut perspiciatis</a></li>
+                    <li><a href="#">Unde oiste natus erturor</a></li>
+                    <li><a href="#">Sit voluptatem accusa</a></li>
+                </ul>
+            </section>
+            <section class="col_2">
+                <h3>Follow Us</h3>
+                <ul id="icons">
+                    <!-- 이미지 경로 수정 -->
+                    <li><a href="#"><img src="{{ url_for('static', filename='images/icon1.jpg') }}" alt="">Facebook</a></li>
+                    <li><a href="#"><img src="{{ url_for('static', filename='images/icon2.jpg') }}" alt="">Twitter</a></li>
+                    <li><a href="#"><img src="{{ url_for('static', filename='images/icon3.jpg') }}" alt="">LinkedIn</a></li>
+                </ul>
+            </section>
+            <section class="col_1">
+                <h3>Address</h3>
+                <p class="address">
+                    <span>
+                        Country:<br>
+                        City:<br>
+                        Email:
+                    </span>
+                    Korea<br>
+                    Swist<br>
+                    <a href="mailto:">protizen@gmail.com</a>
+                </p>
+            </section>
+        </article>
+    </div>
+</div>
+<div class="main">
+    <!-- footer -->
+    <footer>
+        Copyleft. Swist - Charis Education. 2021.
+    </footer>
+    <!-- / footer -->
+</div>
+<script type="text/javascript"> Cufon.now();</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#myRoundabout').roundabout({
+            shape: 'square',
+             minScale: 0.89, // tiny!
+             maxScale: 1, // tiny!
+            easing:'easeOutExpo',
+            clickToFocus:'true',
+            focusBearing:'0',
+            duration:800,
+            reflect:true
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설문 결과</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>설문 결과</h1>
+    {% if serveys %}
+        <table>
+            <thead>
+                <tr>
+                    <th>응답 시간</th>
+                    {% for question in questions %}
+                        <th>{{ question }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for servey in serveys %}
+                    <tr>
+                        <td>{{ servey.regdate }}</td>
+                        {% for response in servey.response %}
+                            <td>{{ response }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>설문결과가 존재하지 않습니다.</p>
+    {% endif %}
+</body>
+</html>

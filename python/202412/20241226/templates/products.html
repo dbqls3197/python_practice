@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+<h1>{% block title %}제품{% endblock %}</h1>
+{% block extra_css %}{% endblock %}
+{% block content %}
+    <h1>제품 목록</h1>
+    <div class="products-container">
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <h3>제품1</h3>
+                <p>가격: 1000원</p>
+            </div>
+            
+            <div class="product-card">
+                <h3>제품2</h3>
+                <p>가격: 2000원</p>
+            </div>
+            
+            <div class="product-card">
+                <h3>제품3</h3>
+                <p>가격: 3000원</p>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}

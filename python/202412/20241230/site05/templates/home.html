@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>홈</title>
+</head>
+<body>
+    <h1>홈페이지</h1>
+    {% if 'user' in session %}
+    <a href="/logout">로그아웃</a>
+    {% else %}
+    <a href="/login">로그인</a>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>설문조사</title>
+    
+    <style>
+        .question { margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>고객 만족도 설문조사</h1>
+
+    <form method="POST", action="/dosurvey">
+        
+        {% for qustion in questions %}
+        <div class="question">
+            <p>{{qustion}}</p>
+            
+            {% if loop.index==1 %}
+            <select name="q{{ loop.index0 }}" required>
+                <option value="매우만족">매우 만족</option>
+                <option value="만족">만족</option>
+                <option value="보통">보통</option>
+                <option value="불만족">불만족</option>
+            </select>
+            {% elif loop.index==2 %}
+            <input type="radio" name="q{{ loop.index0 }}" value="예" required> 예
+            <input type="radio" name="q{{ loop.index0 }}" value="아니오"> 아니오
+            {% else %}
+            <textarea name="q{{ loop.index0 }}" cols="40" rows="5"></textarea>
+            {% endif %}
+        </div>
+        {% endfor %}        
+        <button type="submit">제출</button>
+    </form>
+
+    
+</body>
+</html>

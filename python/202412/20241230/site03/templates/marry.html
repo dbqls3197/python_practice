@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결혼식 방명록</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f2e7;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #f9d6c1;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        h1 {
+            font-size: 36px;
+            color: #7b3f26;
+            margin-top: 20px;
+            font-family: 'Georgia', serif;
+        }
+        .form-container {
+            background-color: #ffffff;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container label {
+            font-size: 18px;
+            color: #7b3f26;
+            display: block;
+            margin: 15px 0 5px;
+            text-align: left;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #7b3f26;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: #f9f2e7;
+        }
+        .form-container button {
+            background-color: #7b3f26;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #a86c53;
+        }
+        .default {
+    border-left: 5px solid #cccccc; /* 기본 회색 테두리 */
+    background-color: #f9f9f9;     /* 기본 배경색 */
+}
+        h2 {
+            font-size: 28px;
+            color: #7b3f26;
+            margin-bottom: 20px;
+        }
+
+        .guestbook-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        .guestbook-item {
+            background-color: #ffffff;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .guestbook-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .guestbook-item h3 {
+            font-size: 22px;
+            color: #7b3f26;
+            margin: 0 0 10px;
+        }
+
+        .guestbook-item p {
+            font-size: 16px;
+            color: #333333;
+            margin: 0 0 10px;
+        }
+
+        .guestbook-item small {
+            font-size: 14px;
+            color: #888888;
+        }
+
+        .guestbook-item.default {
+            border-left: 5px solid #cccccc; /* Default border color */
+        }
+
+        .guestbook-item.congratulations {
+            border-left: 5px solid #ffa07a; /* Soft coral color */
+        }
+
+        .guestbook-item.wellwishes {
+            border-left: 5px solid #98fb98; /* Pale green color */
+        }
+        header .header-image {
+    width: 700px; /* 원하는 너비 */
+    height: auto; /* 비율 유지 */
+    margin: 0 auto;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/wedding_image.png') }}" alt="Wedding Image" class="header-image">
+        <h1>방명록</h1>
+    </header>
+    
+    <div class="form-container">
+        <form action="#" method="post">
+            <label for="title">이름:</label>
+            <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
+            
+            <label for="content">메시지:</label>
+            <input type="text" id="content" name="content" placeholder="내용을 입력하세요">
+            
+            <button type="submit">등록</button>
+        </form>
+    </div>
+    <h2>방명록 내용</h2>
+    <ul class="guestbook-list">
+        {% for memo in memos %}
+        <li class="guestbook-item {{ memo.category if memo.category else 'default' }}">
+            <h3>{{ memo.title }}</h3> 
+            <p>{{ memo.content }}</p>
+            <small>작성일: {{ memo.regdate }}</small>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
